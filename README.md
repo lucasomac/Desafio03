@@ -5,7 +5,7 @@
 
 <div align="center">
 
-# Readme template para projetos android do GitHub
+# Desafio03 template para projetos android do GitHub
 
 </div>
 <div align="center">
@@ -22,18 +22,18 @@
 <div align="center">
 
 [![Autor](https://img.shields.io/badge/autor-Lucas%20de%20Oliveira%20Macedo-920629?style=flat-square)](https://github.com/lucasomac)
-![Linguagens](https://img.shields.io/github/languages/count/lucasomac/readme?color=920629&style=flat-square)
-[![Stars](https://img.shields.io/github/stars/lucasomac/readme?color=920629&style=flat-square)](https://github.com/lucasomac/readme/stargazers)
-[![Forks](https://img.shields.io/github/forks/lucasomac/readme?color=920629&style=flat-square)](https://github.com/lucasomac/readme/network/members)
-![Tamanho do código em bytes](https://img.shields.io/github/repo-size/lucasomac/readme?color=920629&style=flat-square)
-[![Last commit](https://img.shields.io/github/last-commit/lucasomac/readme?color=920629&style=flat-square)](https://github.com/lucasomac/readme/commits/master)
-[![Downloads](https://img.shields.io/github/downloads/lucasomac/readme/total?color=920629&style=flat-square)](https://github.com/lucasomac/readme/releases)
+![Linguagens](https://img.shields.io/github/languages/count/lucasomac/Desafio03?color=920629&style=flat-square)
+[![Stars](https://img.shields.io/github/stars/lucasomac/Desafio03?color=920629&style=flat-square)](https://github.com/lucasomac/Desafio03/stargazers)
+[![Forks](https://img.shields.io/github/forks/lucasomac/Desafio03?color=920629&style=flat-square)](https://github.com/lucasomac/Desafio03/network/members)
+![Tamanho do código em bytes](https://img.shields.io/github/repo-size/lucasomac/Desafio03?color=920629&style=flat-square)
+[![Last commit](https://img.shields.io/github/last-commit/lucasomac/Desafio03?color=920629&style=flat-square)](https://github.com/lucasomac/Desafio03/commits/master)
+[![Downloads](https://img.shields.io/github/downloads/lucasomac/Desafio03/total?color=920629&style=flat-square)](https://github.com/lucasomac/Desafio03/releases)
 
 </div>
 
 ## 💻 Projeto
 
-Este projeto foi desenvolvido para servir de template para criação de repositórios android no Github. Desta forma é possivel termos um readme padrão e pré customizado para os nossos repositórios.
+Este projeto foi desenvolvido para servir de template para criação de repositórios android no Github. Desta forma é possivel termos um Desafio03 padrão e pré customizado para os nossos repositórios.
 
 ## ⚙ Tecnologias
 
@@ -65,7 +65,7 @@ Para executar esse projeto na sua máquina,
 clone no repositório:
 
 ```bash
-$ git clone https://github.com/lucasomac/readme.git
+$ git clone https://github.com/lucasomac/Desafio03.git
 ```
 Abra o projeto com o Android Studio e acione o comando para executar em seu aparelho ou emullador android
 
