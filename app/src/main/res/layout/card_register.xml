@@ -16,16 +16,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:text="@string/bem_vindo"
-            android:textColor="@color/white"
-            android:textSize="24sp"
-            android:textStyle="bold" />
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
@@ -51,6 +41,22 @@
                 android:layout_marginTop="30dp">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etNome"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/nome"
+                    android:textColorHint="@color/primary" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp">
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -58,6 +64,7 @@
                     android:layout_marginEnd="16dp"
                     android:backgroundTint="@color/white"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:textColorHint="@color/primary" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -78,15 +85,6 @@
                     android:textColorHint="@color/primary" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="18dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/remember"
-                android:textColor="@color/gray"
-                android:textSize="20sp" />
-
             <Button
                 android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
@@ -95,22 +93,8 @@
                 android:layout_marginTop="30dp"
                 android:layout_marginRight="24dp"
                 android:backgroundTint="@color/primary"
-                android:text="@string/login"
-                android:textColor="@color/white"
+                android:text="@string/save"
                 android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tvtRegister"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:layout_marginEnd="16dp"
-                android:gravity="center"
-                android:text="@string/new_account"
-                android:textColor="@color/gray"
-                android:textSize="20sp" />
-
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>

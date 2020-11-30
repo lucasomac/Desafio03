@@ -8,7 +8,7 @@
     <string name="login">Log In</string>
     <string name="new_account">Create account</string>
     <string name="remember">Remember</string>
-    <string name="title_activity_register_activity">Register</string>
+    <string name="register">Register</string>
     <string name="save">SAVE</string>
     <string name="nome">Nome</string>
 </resources>
