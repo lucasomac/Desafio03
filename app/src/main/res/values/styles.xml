@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Desafio03.ActionBar.SubTitleTextStyle" parent="Theme.MaterialComponents.Light">
+        <!-- Altere a cor abaixo -->
+        <item name="android:textColor">@color/white</item>
+        <!-- Altere a cor abaixo, acredito que essa regra nao eh necessaria -->
+        <item name="android:actionMenuTextColor">@color/white</item>
+        <!-- Altere a cor abaixo, acredito que essa regra nao eh necessaria -->
+        <item name="android:subtitleTextStyle">@color/white</item>
+    </style>
+</resources>

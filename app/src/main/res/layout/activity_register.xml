@@ -10,17 +10,17 @@
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/tbRegister"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="?attr/actionBarSize"
         android:background="@color/primary"
+        android:elevation="4dp"
         android:navigationIcon="@drawable/ic_baseline_arrow_back_24"
-        android:title="@string/register"
-        android:titleTextColor="@color/white"
+        android:theme="@style/Theme.Desafio03"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <include
-        android:id="@+id/include"
+        android:id="@+id/incRegister"
         layout="@layout/card_register"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="400dp"
         app:cardCornerRadius="70dp"
-        app:layout_constraintBottom_toBottomOf="@+id/include"
+        app:layout_constraintBottom_toBottomOf="@+id/incRegister"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
