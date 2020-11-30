@@ -10,5 +10,12 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+//        binding.root.tbRegister.setNavigationOnClickListener {
+//            navigateUpTo(Intent(this, LoginActivity::class.java))
+//        }
+//        setSupportActionBar(binding.root.tbRegister)
+//        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+//        supportActionBar?.setTitle(R.string.register)
+//        setTitle(R.string.register)
     }
 }
