@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Desafio03</string>
     <string name="title_activity_login">Login</string>
+
+    <string name="bem_vindo">Welcome to the Marvel HQs</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Log In</string>
+    <string name="new_account">Create account</string>
+    <string name="remember">Remember</string>
+    <string name="title_activity_register_activity">Register</string>
+    <string name="save">SAVE</string>
+    <string name="nome">Nome</string>
 </resources>
