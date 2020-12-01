@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import br.com.lucolimac.desafio03.databinding.ActivitySplashBinding
+import br.com.lucolimac.desafio03.ui.LoginActivity
 
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding

@@ -13,11 +13,13 @@
         android:orientation="vertical">
 
         <ImageView
+            android:id="@+id/ivThumb"
             android:layout_width="100dp"
             android:layout_height="150dp"
             android:src="@drawable/poster_filme" />
 
         <TextView
+            android:id="@+id/tvNumber"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="#98"

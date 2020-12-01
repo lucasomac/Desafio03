@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/secondary"
-    app:navGraph="@navigation/nav_graph"
-    tools:context=".LoginActivity">
+    tools:context=".ui.LoginActivity">
 
     <include
         android:id="@+id/icLogin"
