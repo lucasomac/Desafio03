@@ -22,7 +22,6 @@ class RegisterActivity : AppCompatActivity() {
             tbRegister.setTitleTextColor(resources.getColor(R.color.white))
             tbRegister.setNavigationIcon(R.drawable.ic_baseline_arrow_back_24)
             incRegister.btnLogin.setTextColor(resources.getColor(R.color.white))
-
         }
         binding.incRegister.btnLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))

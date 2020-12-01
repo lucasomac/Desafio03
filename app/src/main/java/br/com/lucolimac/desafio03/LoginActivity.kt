@@ -12,6 +12,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.icLogin.btnLogin.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
         binding.icLogin.tvtRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
