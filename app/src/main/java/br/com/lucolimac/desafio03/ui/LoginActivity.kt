@@ -1,4 +1,4 @@
-package br.com.lucolimac.desafio03
+package br.com.lucolimac.desafio03.ui
 
 import android.content.Intent
 import android.os.Bundle
