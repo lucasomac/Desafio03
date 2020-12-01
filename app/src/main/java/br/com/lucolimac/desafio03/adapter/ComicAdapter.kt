@@ -24,6 +24,7 @@ class ComicAdapter(val listener: OnClickComic) :
 //        Glide.with(holder.itemView.context).asBitmap()
 //            .load("${comic.thumbnail.path}.${comic.thumbnail.extension}")
 //            .into(holder.ivThumb)
+//        holder.ivThumb.setImageResource(R.drawable.poster_filme)
         holder.ivThumb.setImageURI(Uri.parse("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
         holder.tvNumber.text = "#" + comic.issueNumber
     }

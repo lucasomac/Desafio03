@@ -1,6 +1,7 @@
 package br.com.lucolimac.desafio03.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -33,10 +34,16 @@ class MainActivity : AppCompatActivity(), ComicAdapter.OnClickComic {
         binding.rcComics.adapter = adapterComic
         binding.rcComics.layoutManager = gridLayoutManager
         binding.rcComics.hasFixedSize()
-        viewModel.allComicsSpiderMan()
+//        viewModel.allComics()
 //        viewModel.listComics.observe(this) {
-//            adapterComic.addComic(it.data.comics)
+//            adapterComic.addComic(it)
 //        }
+
+        viewModel.listResultSets.observe(this) {
+            adapterComic.addComic(it.data.comics)
+            Log.i("DADO", it.toString())
+        }
+        viewModel.allComicsSpiderMan()
     }
 
     override fun onClickComic(position: Int) {

@@ -36,7 +36,7 @@ interface Repository {
         apikey: String,
         @Query("hash")
         hash: String
-    )
+    ): ResultSet
 
     @GET("comics/{id}")
     suspend fun getComic(

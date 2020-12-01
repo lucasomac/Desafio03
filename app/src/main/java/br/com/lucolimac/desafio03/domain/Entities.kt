@@ -1,20 +1,20 @@
 package br.com.lucolimac.desafio03.domain
 
 data class ResultSet(
-    val attributionHTML: String,
-    val attributionText: String,
-    val code: String,
-    val copyright: String,
+//    val attributionHTML: String,
+//    val attributionText: String,
+//    val code: String,
+//    val copyright: String,
     val `data`: Data,
-    val etag: String,
-    val status: String
+//    val etag: String,
+//    val status: String
 )
 
 data class Data(
     val count: String,
     val limit: String,
     val offset: String,
-    val comics: List<Comic>,
+    val comics: ArrayList<Comic>,
     val total: String
 )
 
