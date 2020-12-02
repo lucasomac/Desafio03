@@ -1,29 +1,29 @@
 package br.com.lucolimac.desafio03.domain
 
-data class ResultSet(
-//    val attributionHTML: String,
-//    val attributionText: String,
-//    val code: String,
-//    val copyright: String,
+data class Entities(
+    val attributionHTML: String,
+    val attributionText: String,
+    val code: String,
+    val copyright: String,
     val `data`: Data,
-//    val etag: String,
-//    val status: String
+    val etag: String,
+    val status: String
 )
 
 data class Data(
     val count: String,
     val limit: String,
     val offset: String,
-    val comics: ArrayList<Comic>,
+    val results: ArrayList<Result>,
     val total: String
 )
 
-data class Comic(
+data class Result(
     val characters: Characters,
-    val collectedIssues: List<CollectedIssue>,
-    val collections: List<Collection>,
+    val collectedIssues: ArrayList<CollectedIssue>,
+    val collections: ArrayList<Collection>,
     val creators: Creators,
-    val dates: List<Date>,
+    val dates: ArrayList<Date>,
     val description: String,
     val diamondCode: String,
     val digitalId: String,
@@ -31,29 +31,29 @@ data class Comic(
     val events: Events,
     val format: String,
     val id: String,
-    val images: List<Image>,
+    val images: ArrayList<Image>,
     val isbn: String,
     val issn: String,
     val issueNumber: String,
     val modified: String,
     val pageCount: String,
-    val prices: List<Price>,
+    val prices: ArrayList<Price>,
     val resourceURI: String,
     val series: Series,
     val stories: Stories,
-    val textObjects: List<TextObject>,
+    val textObjects: ArrayList<TextObject>,
     val thumbnail: Thumbnail,
     val title: String,
     val upc: String,
-    val urls: List<Url>,
+    val urls: ArrayList<Url>,
     val variantDescription: String,
-    val variants: List<Variant>
+    val variants: ArrayList<Variant>
 )
 
 data class Characters(
     val available: String,
     val collectionURI: String,
-    val items: List<Item>,
+    val items: ArrayList<Item>,
     val returned: String
 )
 
@@ -70,7 +70,7 @@ data class Collection(
 data class Creators(
     val available: String,
     val collectionURI: String,
-    val items: List<ItemX>,
+    val items: ArrayList<ItemX>,
     val returned: String
 )
 
@@ -82,7 +82,7 @@ data class Date(
 data class Events(
     val available: String,
     val collectionURI: String,
-    val items: List<ItemXX>,
+    val items: ArrayList<ItemXX>,
     val returned: String
 )
 
@@ -104,7 +104,7 @@ data class Series(
 data class Stories(
     val available: String,
     val collectionURI: String,
-    val items: List<ItemXXX>,
+    val items: ArrayList<ItemXXX>,
     val returned: String
 )
 
@@ -116,7 +116,7 @@ data class TextObject(
 
 data class Thumbnail(
     val extension: String,
-    val path: String
+    var path: String
 )
 
 data class Url(
