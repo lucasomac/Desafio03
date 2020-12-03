@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.com.lucolimac.desafio03.R
 import br.com.lucolimac.desafio03.domain.Result
+import br.com.lucolimac.desafio03.util.replaceHttps
 import com.bumptech.glide.Glide
 
 class ComicAdapter(val listener: OnClickComic) :
@@ -22,7 +23,7 @@ class ComicAdapter(val listener: OnClickComic) :
     override fun onBindViewHolder(holder: ComicViewHolder, position: Int) {
         val comic = listComic[position]
         Glide.with(holder.itemView.context).asBitmap()
-            .load("${comic.thumbnail.path}.${comic.thumbnail.extension}")
+            .load(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
             .into(holder.ivThumb)
         holder.ivThumb.setImageResource(R.drawable.poster_filme)
         holder.tvNumber.text = "#${comic.id}"
@@ -32,7 +33,7 @@ class ComicAdapter(val listener: OnClickComic) :
 
     fun addComic(list: ArrayList<Result>) {
         listComic.addAll(list)
-        listComic.forEach { it.thumbnail.path = it.thumbnail.path.replace("http", "https") }
+//        listComic.forEach { it.thumbnail.path = it.thumbnail.path.replace("http", "https") }
         notifyDataSetChanged()
     }
 

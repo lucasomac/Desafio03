@@ -2,14 +2,18 @@ package br.com.lucolimac.desafio03.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
+import android.view.View.INVISIBLE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import br.com.lucolimac.desafio03.adapter.ComicAdapter
 import br.com.lucolimac.desafio03.databinding.ActivityMainBinding
 import br.com.lucolimac.desafio03.service.repository
+import br.com.lucolimac.desafio03.util.LIMIT_RETORNO
 import br.com.lucolimac.desafio03.viewModel.MainViewModel
 
 class MainActivity : AppCompatActivity(), ComicAdapter.OnClickComic {
@@ -36,30 +40,31 @@ class MainActivity : AppCompatActivity(), ComicAdapter.OnClickComic {
         binding.rcComics.layoutManager = gridLayoutManager
         binding.rcComics.hasFixedSize()
 
+        viewModel.allComics(offset)
         viewModel.listComics.observe(this) {
             adapterComic.addComic(it)
+            binding.pbCardComic.visibility = INVISIBLE
         }
-//        setScroller()
-        viewModel.allComics(offset)
+        setScroller()
     }
 
-//    fun setScroller() {
-//        binding.rcComics.addOnScrollListener(object : RecyclerView.OnScrollListener() {
-//            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
-//                super.onScrolled(recyclerView, dx, dy)
-//                if (dy > 0) {
-//                    val litem = gridLayoutManager.itemCount
-//                    val vitem = gridLayoutManager.findFirstCompletelyVisibleItemPosition()
-//                    val itens = adapterComic.itemCount
-//                    if (litem + vitem >= itens) {
-//                        Log.i("TAG", dy.toString())
-//                        offset += limit
-//                        viewModel.allComics(offset)
-//                    }
-//                }
-//            }
-//        })
-//    }
+    fun setScroller() {
+        binding.rcComics.addOnScrollListener(object : RecyclerView.OnScrollListener() {
+            override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                super.onScrolled(recyclerView, dx, dy)
+                if (dy > 0) {
+                    val viewedItens = gridLayoutManager.childCount
+                    val vitem = gridLayoutManager.findFirstCompletelyVisibleItemPosition()
+                    val totalItens = adapterComic.itemCount
+                    if (viewedItens + vitem >= totalItens) {
+                        Log.i("TAG", dy.toString())
+                        offset += LIMIT_RETORNO
+                        viewModel.allComics(offset)
+                    }
+                }
+            }
+        })
+    }
 
     override fun onClickComic(position: Int) {
         val comic = adapterComic.listComic[position]
