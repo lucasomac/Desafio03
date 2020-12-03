@@ -40,18 +40,14 @@ interface Repository {
 
     @GET("comics/{id}")
     suspend fun getComic(
-        @Query("offset")
-        offset: Int,
-        @Query("limit")
-        limit: Int,
+        @Path("id") id: Int,
         @Query("ts")
         ts: Int,
         @Query("apikey")
         apikey: String,
         @Query("hash")
-        hash: String,
-        @Path("id") id: Int
-    )
+        hash: String
+    ): Entities
 }
 
 val retrofit = Retrofit.Builder()

@@ -7,7 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import br.com.lucolimac.desafio03.ComicDetailActivity
 import br.com.lucolimac.desafio03.adapter.ComicAdapter
 import br.com.lucolimac.desafio03.databinding.ActivityMainBinding
 import br.com.lucolimac.desafio03.service.repository
@@ -63,9 +62,9 @@ class MainActivity : AppCompatActivity(), ComicAdapter.OnClickComic {
 //    }
 
     override fun onClickComic(position: Int) {
-        val hq = adapterComic.listComic[position]
+        val comic = adapterComic.listComic[position]
         val intent = Intent(this, ComicDetailActivity::class.java)
-        intent.putExtra("hq", hq.id)
+        intent.putExtra("comicId", comic.id)
         startActivity(intent)
     }
 }

@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Desafio03">
-        <activity android:name=".ComicDetailActivity"></activity>
+        <activity android:name=".ui.ComicDetailActivity"></activity>
         <activity
             android:name=".ui.RegisterActivity"
             android:parentActivityName=".ui.LoginActivity" />
