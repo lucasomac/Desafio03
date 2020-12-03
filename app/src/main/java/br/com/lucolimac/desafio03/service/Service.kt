@@ -10,20 +10,6 @@ import retrofit2.http.Query
 
 
 interface Repository {
-//    @GET("series/454/comics")
-//    suspend fun getComicsSpider(
-//        @Query("offset")
-//        offset: Int,
-//        @Query("limit")
-//        limit: Int,
-//        @Query("ts")
-//        ts: String,
-//        @Query("apikey")
-//        apikey: String,
-//        @Query("hash")
-//        hash: String
-//    ): ResultSet
-
     @GET("comics")
     suspend fun getComics(
         @Query("offset")
@@ -40,7 +26,8 @@ interface Repository {
 
     @GET("comics/{id}")
     suspend fun getComic(
-        @Path("id") id: Int,
+        @Path("id")
+        id: Int,
         @Query("ts")
         ts: Int,
         @Query("apikey")
