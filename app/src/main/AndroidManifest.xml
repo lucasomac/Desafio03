@@ -3,6 +3,7 @@
     package="br.com.lucolimac.desafio03">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,6 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Desafio03">
+        <activity android:name=".ComicDetailActivity"></activity>
         <activity
             android:name=".ui.RegisterActivity"
             android:parentActivityName=".ui.LoginActivity" />
@@ -21,6 +23,7 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -1,6 +1,5 @@
 package br.com.lucolimac.desafio03.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -16,7 +15,7 @@ class ComicAdapter(val listener: OnClickComic) :
     var listComic = ArrayList<Result>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ComicViewHolder {
         val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.card_hq, parent, false)
+            LayoutInflater.from(parent.context).inflate(R.layout.card_comic, parent, false)
         return ComicViewHolder(view)
     }
 
@@ -27,7 +26,6 @@ class ComicAdapter(val listener: OnClickComic) :
             .into(holder.ivThumb)
         holder.ivThumb.setImageResource(R.drawable.poster_filme)
         holder.tvNumber.text = "#${comic.id}"
-//        Log.i("NUMBER", comic.)
     }
 
     override fun getItemCount() = listComic.size
@@ -38,9 +36,18 @@ class ComicAdapter(val listener: OnClickComic) :
         notifyDataSetChanged()
     }
 
-    inner class ComicViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    inner class ComicViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
+        init {
+            itemView.setOnClickListener(this)
+        }
+
         var ivThumb: ImageView = view.findViewById(R.id.ivThumb)
         var tvNumber: TextView = view.findViewById(R.id.tvNumber)
+        override fun onClick(v: View?) {
+            if (adapterPosition != RecyclerView.NO_POSITION) {
+                listener.onClickComic(adapterPosition)
+            }
+        }
     }
 
     interface OnClickComic {

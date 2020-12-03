@@ -5,6 +5,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.lucolimac.desafio03.domain.Result
 import br.com.lucolimac.desafio03.service.Repository
+import br.com.lucolimac.desafio03.util.HASH_API
+import br.com.lucolimac.desafio03.util.LIMIT_RETORNO
+import br.com.lucolimac.desafio03.util.PUBLIC_API_KEY
+import br.com.lucolimac.desafio03.util.TIME_STAMP_API
 import kotlinx.coroutines.launch
 
 class MainViewModel(val repository: Repository) : ViewModel() {
@@ -13,10 +17,10 @@ class MainViewModel(val repository: Repository) : ViewModel() {
         viewModelScope.launch {
             repository.getComics(
                 offSet,
-                12,
-                "1",
-                "f9cb9b2e474b53391d7ef0b68943eb1f",
-                "05841f118ae7797fcb7179bc8a6924bf"
+                LIMIT_RETORNO,
+                TIME_STAMP_API,
+                PUBLIC_API_KEY,
+                HASH_API
             ).also { listComics.postValue(it.data.results) }
         }
     }
