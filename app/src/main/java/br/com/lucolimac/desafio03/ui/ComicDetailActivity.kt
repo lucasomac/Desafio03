@@ -7,8 +7,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.NavHostFragment
 import br.com.lucolimac.desafio03.R
 import br.com.lucolimac.desafio03.databinding.ActivityComicDetailBinding
 import br.com.lucolimac.desafio03.domain.Result
@@ -17,15 +15,18 @@ import br.com.lucolimac.desafio03.util.replaceHttps
 import br.com.lucolimac.desafio03.viewModel.ComicDetailViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 
 @GlideModule
 class ComicDetailActivity : AppCompatActivity() {
     private lateinit var comic: Result
     private lateinit var binding: ActivityComicDetailBinding
-    val navHostFragment =
-        supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
-    val navController = navHostFragment.navController
+
+    //    val navHostFragment =
+//        supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+//    val navController = navHostFragment.navController
     val viewModel by viewModels<ComicDetailViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -34,8 +35,8 @@ class ComicDetailActivity : AppCompatActivity() {
         }
     }
 
-    override fun onSupportNavigateUp(): Boolean =
-        findNavController(R.id.fragment).navigateUp()
+//    override fun onSupportNavigateUp(): Boolean =
+//        findNavController(R.id.fragment).navigateUp()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -79,26 +80,24 @@ class ComicDetailActivity : AppCompatActivity() {
                 if (!comic.pageCount.isBlank() && !comic.pageCount.isEmpty()) comic.pageCount else "No data Found!"
             binding.tvPublicacao.text =
                 if (!comic.dates[0].date.isBlank() && !comic.dates[0].date.isEmpty())
-                    comic.dates[0].date
+                    DateTimeFormatter.ofPattern("MMMM dd, yyyy")
+                        .format(LocalDateTime.parse(comic.dates[0].date.split("-0500")[0]))
                 else "No data Found!"
         }
         binding.ivArrowBackDetail.setOnClickListener { onBackPressed() }
         binding.ivPerfilComic.setOnClickListener {
-            showImage(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
+//            val manager = supportFragmentManager
+//            val transaction = manager.beginTransaction()
+//            transaction.replace(R.id.fragment, ProfileZoomFragment())
+//            transaction.commit()
+//            showImage(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
         }
     }
-//    fun getData(): String {
-//        var data = Date(comic.dates[0].date)
-//        val formato = "dd/MM/yyyy"
-//        val format = SimpleDateFormat(formato, Locale.US)
-//        val dataFormatada = format.format(comic.dates[0].date)
-//        return dataFormatada
-//    }
 
     fun showImage(imageUri: String) {
-        val action =
-            ComicDetailActivityDirections.actionComicDetailActivity2ToProfileZoomFragment2()
-        navController.navigate(action)
+//        val action =
+//            ComicDetailActivityDirections.actionComicDetailActivity2ToProfileZoomFragment2()
+//        navController.navigate(action)
         Glide.with(this).asBitmap()
             .load(imageUri)
             .into(findViewById(R.id.ivProfileZoom))
