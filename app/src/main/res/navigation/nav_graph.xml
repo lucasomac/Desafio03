@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/comicDetailActivity2">
+    <fragment
+        android:id="@+id/profileZoomFragment2"
+        android:name="br.com.lucolimac.desafio03.ProfileZoomFragment"
+        android:label="fragment_profile_zoom"
+        tools:layout="@layout/fragment_profile_zoom" />
+    <activity
+        android:id="@+id/comicDetailActivity2"
+        android:name="br.com.lucolimac.desafio03.ui.ComicDetailActivity"
+        android:label="activity_comic_detail"
+        tools:layout="@layout/activity_comic_detail">
+        <action
+            android:id="@+id/action_comicDetailActivity2_to_profileZoomFragment2"
+            app:destination="@id/profileZoomFragment2"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
+    </activity>
+</navigation>

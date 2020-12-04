@@ -1,15 +1,14 @@
 package br.com.lucolimac.desafio03.ui
 
-import android.app.Dialog
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.NavHostFragment
 import br.com.lucolimac.desafio03.R
 import br.com.lucolimac.desafio03.databinding.ActivityComicDetailBinding
 import br.com.lucolimac.desafio03.domain.Result
@@ -18,15 +17,15 @@ import br.com.lucolimac.desafio03.util.replaceHttps
 import br.com.lucolimac.desafio03.viewModel.ComicDetailViewModel
 import com.bumptech.glide.Glide
 import com.bumptech.glide.annotation.GlideModule
-import java.text.SimpleDateFormat
-import java.util.*
 
 
 @GlideModule
 class ComicDetailActivity : AppCompatActivity() {
     private lateinit var comic: Result
     private lateinit var binding: ActivityComicDetailBinding
-
+    val navHostFragment =
+        supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
+    val navController = navHostFragment.navController
     val viewModel by viewModels<ComicDetailViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -34,6 +33,9 @@ class ComicDetailActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onSupportNavigateUp(): Boolean =
+        findNavController(R.id.fragment).navigateUp()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -85,7 +87,6 @@ class ComicDetailActivity : AppCompatActivity() {
             showImage(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
         }
     }
-
 //    fun getData(): String {
 //        var data = Date(comic.dates[0].date)
 //        val formato = "dd/MM/yyyy"
@@ -95,12 +96,11 @@ class ComicDetailActivity : AppCompatActivity() {
 //    }
 
     fun showImage(imageUri: String) {
-        val dialog = Dialog(this)
-        val dialogView = LayoutInflater.from(this).inflate(R.layout.profile_dialog, null, false)
-        val imageView = findViewById<ImageView>(R.id.ivDialogProfile)
-        imageView?.let { Glide.with(this).asBitmap().load(R.drawable.poster_filme).into(it) }
-        dialog.setCancelable(true)
-        dialog.setContentView(dialogView)
-        dialog.show()
+        val action =
+            ComicDetailActivityDirections.actionComicDetailActivity2ToProfileZoomFragment2()
+        navController.navigate(action)
+        Glide.with(this).asBitmap()
+            .load(imageUri)
+            .into(findViewById(R.id.ivProfileZoom))
     }
 }
