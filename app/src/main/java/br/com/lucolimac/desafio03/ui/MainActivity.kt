@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View.INVISIBLE
+import android.view.View.VISIBLE
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
@@ -59,6 +60,7 @@ class MainActivity : AppCompatActivity(), ComicAdapter.OnClickComic {
                     if (viewedItens + vitem >= totalItens) {
                         Log.i("TAG", dy.toString())
                         offset += LIMIT_RETORNO
+                        binding.pbCardComic.visibility = VISIBLE
                         viewModel.allComics(offset)
                     }
                 }

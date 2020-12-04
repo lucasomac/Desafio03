@@ -1,12 +1,15 @@
 package br.com.lucolimac.desafio03.ui
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import br.com.lucolimac.desafio03.ProfileZoomFragment
 import br.com.lucolimac.desafio03.R
 import br.com.lucolimac.desafio03.databinding.ActivityComicDetailBinding
 import br.com.lucolimac.desafio03.domain.Result
@@ -23,10 +26,6 @@ import java.time.format.DateTimeFormatter
 class ComicDetailActivity : AppCompatActivity() {
     private lateinit var comic: Result
     private lateinit var binding: ActivityComicDetailBinding
-
-    //    val navHostFragment =
-//        supportFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
-//    val navController = navHostFragment.navController
     val viewModel by viewModels<ComicDetailViewModel> {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
@@ -35,9 +34,7 @@ class ComicDetailActivity : AppCompatActivity() {
         }
     }
 
-//    override fun onSupportNavigateUp(): Boolean =
-//        findNavController(R.id.fragment).navigateUp()
-
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val comicId = intent.extras?.get("comicId")
@@ -86,20 +83,22 @@ class ComicDetailActivity : AppCompatActivity() {
         }
         binding.ivArrowBackDetail.setOnClickListener { onBackPressed() }
         binding.ivPerfilComic.setOnClickListener {
-//            val manager = supportFragmentManager
-//            val transaction = manager.beginTransaction()
-//            transaction.replace(R.id.fragment, ProfileZoomFragment())
-//            transaction.commit()
-//            showImage(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
+            showFragmentImage()
         }
     }
 
-    fun showImage(imageUri: String) {
-//        val action =
-//            ComicDetailActivityDirections.actionComicDetailActivity2ToProfileZoomFragment2()
-//        navController.navigate(action)
-        Glide.with(this).asBitmap()
-            .load(imageUri)
-            .into(findViewById(R.id.ivProfileZoom))
+    fun showFragmentImage() {
+        val bundle = Bundle()
+        bundle.putString(
+            "comic",
+            replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}")
+        )
+        val fragZoomProfile = ProfileZoomFragment.newInstance()
+        fragZoomProfile.arguments = bundle
+        supportFragmentManager.beginTransaction().apply {
+            replace(R.id.fragment, fragZoomProfile)
+            commit()
+        }
+        Log.i("STRING_URL", bundle.get("comic").toString())
     }
 }
