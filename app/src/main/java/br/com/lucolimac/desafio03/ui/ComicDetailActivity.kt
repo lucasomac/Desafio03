@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.bundleOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import br.com.lucolimac.desafio03.ProfileZoomFragment
@@ -88,17 +89,11 @@ class ComicDetailActivity : AppCompatActivity() {
     }
 
     fun showFragmentImage() {
-        val bundle = Bundle()
-        bundle.putString(
-            "comic",
-            replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}")
-        )
-        val fragZoomProfile = ProfileZoomFragment.newInstance()
-        fragZoomProfile.arguments = bundle
+        val fragZoomProfile = ProfileZoomFragment.newInstance(replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
+        fragZoomProfile.arguments =
+            bundleOf("url" to replaceHttps("${comic.thumbnail.path}.${comic.thumbnail.extension}"))
         supportFragmentManager.beginTransaction().apply {
-            replace(R.id.fragment, fragZoomProfile)
-            commit()
+            replace(R.id.fragment, fragZoomProfile).commit()
         }
-        Log.i("STRING_URL", bundle.get("comic").toString())
     }
 }
